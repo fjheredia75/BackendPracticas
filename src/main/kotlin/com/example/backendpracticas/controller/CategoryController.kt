@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import javax.validation.Valid
 
+
 @RestController
 @RequestMapping("/category")
 class CategoryController {
@@ -31,7 +32,7 @@ class CategoryController {
     }
 
     @GetMapping("/{id}")
-    fun listById (@PathVariable("id") id: Long): ResponseEntity<Category>{
+    fun listById (@PathVariable ("id") id: Long): ResponseEntity<Category>{
         return ResponseEntity(categoryService.listById(id), HttpStatus.OK)
     }
 
@@ -41,11 +42,9 @@ class CategoryController {
     }
 
     @PatchMapping
-    fun updateNombre (@RequestBody @Valid category:Category):ResponseEntity<Category>{
-        return ResponseEntity(categoryService.updateNombre(category), HttpStatus.OK)
+    fun updateDescripcion (@RequestBody @Valid category:Category):ResponseEntity<Category>{
+        return ResponseEntity(categoryService.updateDescripcion(category), HttpStatus.OK)
     }
-
-
     @DeleteMapping("/delete/{id}")
     fun delete (@PathVariable("id") id: Long):Boolean?{
         return categoryService.delete(id)

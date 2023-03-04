@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 
+
 @Service
 class ActivityService {
     @Autowired
@@ -39,7 +40,7 @@ class ActivityService {
             val response = activityRepository.findById(activity.id)
                 ?: throw Exception("ID no existe")
             response.apply {
-                fecha=activity.fecha
+                description=activity.description
             }
             return activityRepository.save(response)
         }
@@ -54,4 +55,5 @@ class ActivityService {
         activityRepository.deleteById(id!!)
         return true
     }
+
 }

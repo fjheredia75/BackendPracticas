@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
 
+
 @Service
 class CategoryService {
     @Autowired
@@ -17,6 +18,7 @@ class CategoryService {
     fun list ():List<Category>{
         return categoryRepository.findAll()
     }
+
     fun listById (id: Long?): Category?{
         return  categoryRepository.findById(id)
     }
@@ -33,7 +35,7 @@ class CategoryService {
 
     }
 
-    fun updateNombre(category:Category): Category {
+    fun updateDescripcion(category:Category): Category {
         try{
             val response = categoryRepository.findById(category.id)
                 ?: throw Exception("ID no existe")
