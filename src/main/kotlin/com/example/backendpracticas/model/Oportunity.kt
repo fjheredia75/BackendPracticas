@@ -17,9 +17,10 @@ class Oportunity {
     @Column(updatable = false)
     var id: Long? = null
     var description: String? = null
-    @NotBlank
-    var fecha_inicio: Date? = null
-    var fecha_fin: Date? = null
+    @Column(name = "fecha_inicio")
+    var fechaInicio: Date? = null
+    @Column(name = "fecha_fin")
+    var fechaFin: Date? = null
     @Column(name = "customer_id")
     var customerId: Long? = null
 }
